@@ -1,0 +1,23 @@
+{
+  "name": "epicfreegames",
+  "version": "0.0.1",
+  "description": "Scrape the weekly free games from Epic",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kjanuska/EpicFreeGames.git"
+  },
+  "author": "Kipras Januska",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kjanuska/EpicFreeGames/issues"
+  },
+  "homepage": "https://github.com/kjanuska/EpicFreeGames#readme",
+  "dependencies": {
+    "axios": "^0.24.0"
+  }
+}
