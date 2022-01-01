@@ -1,7 +1,6 @@
 import axios from "axios";
 import check from "./check_games.js";
-import Game from "./game.js";
-import dotenv from 'dotenv'
+import dotenv from 'dotenv';
 dotenv.config()
 
 axios.defaults.headers.post["Content-Type"] = "application/json";
@@ -11,7 +10,7 @@ function create_embed(game) {
         title : game.title,
         description : game.description,
         url : `https://www.epicgames.com/store/en-US/p/${game.slug}`,
-        color : 0xffc0cb,
+        color : 0x303030,
         fields: [
             {
               name: "Deal Length",
@@ -24,7 +23,7 @@ function create_embed(game) {
     }
 }
 
-async function send_message() {
+export default async function send_message() {
     let message = {
         content : null,
         embeds : []
@@ -40,5 +39,3 @@ async function send_message() {
         console.log(err);
     }
 }
-
-send_message();
