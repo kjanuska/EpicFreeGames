@@ -28,11 +28,18 @@ export default class Game {
     return Math.floor(date.getTime() / 1000);
   }
 
-  get begin() {
+  get begin_unix() {
     return this.unix(this._begin);
   }
 
-  get end() {
+  get end_unix() {
     return this.unix(this._end);
+  }
+
+  get next() {
+    // add 30 minutes to the date time to allow for slow updates on Epic's part
+    let date = new Date(this._end);
+    date.setMinutes(date.getMinutes() + 30);
+    return date;
   }
 }
