@@ -6,7 +6,7 @@ dotenv.config();
 
 axios.defaults.headers.post["Content-Type"] = "application/json";
 
-let free_games;
+let free_games = [];
 
 function create_embed(game) {
   return {
@@ -26,7 +26,10 @@ function create_embed(game) {
   };
 }
 
-export function get_next_time() {
+export async function get_next_time() {
+  if (free_games.length == 0) {
+    free_games = await check();
+  }
   return free_games[0].next;
 }
 

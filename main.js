@@ -2,11 +2,13 @@ import { get_next_time, send_message } from "./webhook.js";
 import { CronJob, CronTime } from "cron";
 import { NoGames } from "./errors.js";
 
-let time;
+let time = await get_next_time();
+console.log(`checking at ${time}`);
+
 async function get_new() {
   try {
     await send_message();
-    time = get_next_time();
+    time = await get_next_time();
   } catch (err) {
     // if there are no free games wait until 12 PM EST the next Thursday
     if (err instanceof NoGames) {
@@ -15,8 +17,6 @@ async function get_new() {
   }
 }
 
-await get_new();
-console.log(`checking at ${time}`);
 const timer = new CronJob(
   time,
   async () => {
