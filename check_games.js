@@ -27,10 +27,9 @@ const check = async () => {
 						] === 0
 					) {
 						game["keyImages"].some((image) => {
-							if (image["type"] === "Thumbnail") {
-								imageURL = image["url"];
-								return true;
-							} else if (image["type"] === "VaultOpened") {
+							if (image["type"] === "Thumbnail" || 
+								image["type"] === "VaultOpened" ||
+								image["type"] === "DieselStoreFrontWide") {
 								imageURL = image["url"];
 								return true;
 							}
